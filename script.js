@@ -1,20 +1,30 @@
 $("*").click(function(e){
     var data = e.target.className.split(" ")[0];
     data = data.substring(0,data.length-2);
+//    console.log(data);
     e.stopPropagation();
 
-    $(".circle").slideUp(1000);
-    $(".main1 h1").fadeOut(1000);
-    $(".main1 p").fadeOut(1000);
 
+    if(
+        data=="home"||data=="about"||data=="project"||data=="resume"
+    ){
 
-    function fun1(){
-        $(".main1 h1").html(data);
-    }    
-
-    setTimeout(fun1,1000);
+        var speed = 800;
+        $(".circle").slideUp(speed);
+        $(".main1 h1").fadeOut(speed);
+        $(".main1 p").fadeOut(speed);
     
-    $(".circle").slideDown(1000);
-    $(".main1 h1").fadeIn(1000);
+    
+        function fun1(){
+            $(".main1 h1").html(data);
+        }    
+    
+        setTimeout(fun1,speed);
+        
+        $(".circle").slideDown(speed);
+        $(".main1 h1").fadeIn(speed);    
+
+    }
+
 
 })
